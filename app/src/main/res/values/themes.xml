@@ -1,0 +1,15 @@
+<resources>
+    <style name="Base.Theme.Androidproj" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/accent</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorPrimaryContainer">@color/accent_dark</item>
+        <item name="colorSecondary">@color/pink</item>
+        <item name="colorSurface">@color/surface</item>
+        <item name="colorSurfaceContainer">@color/surface</item>
+        <item name="colorSurfaceContainerHigh">@color/surface_high</item>
+        <item name="android:colorBackground">@color/bg</item>
+        <item name="android:windowBackground">@color/bg</item>
+    </style>
+
+    <style name="Theme.Androidproj" parent="Base.Theme.Androidproj" />
+</resources>

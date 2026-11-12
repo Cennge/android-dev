@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Android Dev Top-5</string>
+    <string name="home_title">Топ-5 бібліотек для Android</string>
+    <string name="home_subtitle">Відео · 3D · анімації · зображення · частинки</string>
+    <string name="celebrate">Святкуємо!</string>
+    <string name="player_title">Media3 / ExoPlayer</string>
+    <string name="filament_title">Filament 3D</string>
+    <string name="lottie_title">Lottie + Konfetti</string>
+    <string name="gallery_title">Coil 3 Gallery</string>
+</resources>
