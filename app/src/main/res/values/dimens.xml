@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!-- cennge-radius-small / medium / large -->
-    <dimen name="radius_small">8dp</dimen>
-    <dimen name="radius_medium">12dp</dimen>
-    <dimen name="radius_large">16dp</dimen>
-    <dimen name="radius_xl">24dp</dimen>
-    <dimen name="gutter">16dp</dimen>
-</resources>

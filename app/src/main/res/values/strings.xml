@@ -1,11 +1,3 @@
 <resources>
-    <string name="app_name">Практика 2 · Поширити</string>
-    <string name="title">Поширити</string>
-    <string name="image">Вибране зображення</string>
-    <string name="image_hint">Тут буде твоє фото</string>
-    <string name="pick">Обрати зображення</string>
-    <string name="text_hint">Напиши текст до фото…</string>
-    <string name="share">Поширити</string>
-    <string name="choose_app">Оберіть додаток</string>
-    <string name="no_image">Спочатку обери зображення</string>
+    <string name="app_name">Практика 3 · Vibe Store</string>
 </resources>

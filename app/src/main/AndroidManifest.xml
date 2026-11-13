@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- фото товарів завантажуються з інтернету -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,7 +15,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Practice"
         tools:targetApi="36">
-        <!-- без screenOrientation / configChanges: при повороті активіті перестворюється -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -21,17 +23,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <!-- дає іншим додаткам (Telegram тощо) доступ до фото, яким ділимося -->
-        <provider
-            android:name="androidx.core.content.FileProvider"
-            android:authorities="${applicationId}.files"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths" />
-        </provider>
     </application>
 
 </manifest>
