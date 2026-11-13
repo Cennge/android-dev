@@ -12,6 +12,18 @@
 |:---:|:---:|:---:|
 | ![Головний екран](screenshots/01_home.png) | ![Фільтри](screenshots/02_filters.png) | ![Обрізка](screenshots/03_crop.png) |
 
+## Гілки репозиторію
+
+Кожне завдання лежить в окремій гілці, у `main` — найновіша домашня робота.
+
+| Гілка | Завдання |
+|---|---|
+| [`hw02-photoshop`](https://github.com/Cennge/android-dev/tree/hw02-photoshop) (= `main`) | ДЗ 2 — «Фотошоп 2.0», фоторедактор |
+| [`hw01-top5-libraries`](https://github.com/Cennge/android-dev/tree/hw01-top5-libraries) | ДЗ 1 — топ-5 Android-бібліотек |
+| [`practice01-cat`](https://github.com/Cennge/android-dev/tree/practice01-cat) | Практика 1 — клас `Cat`, збереження стану при повороті (`Parcelable`) |
+| [`practice02-share`](https://github.com/Cennge/android-dev/tree/practice02-share) | Практика 2 — вибір фото, текст і «Поширити» |
+| [`practice03-compose`](https://github.com/Cennge/android-dev/tree/practice03-compose) | Практика 3 — інтернет-магазин на Jetpack Compose |
+
 ## Що було на занятті і що додано
 
 На занятті: фото з камери або з інтернету і 2–3 кнопки з фільтрами.
