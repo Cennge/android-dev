@@ -3,6 +3,10 @@
 Завдання: маленький клас (Кіт) з 2–3 полями, геттерами, сеттерами та конструктором; поле з типом `Cat` в активіті;
 при повороті екрана стан кота має зберігатися (`onSaveInstanceState` / `onRestoreInstanceState`).
 
+| До повороту | Після повороту — стан зберігся |
+|:---:|:---:|
+| <img src="screenshots/01_portrait.png" width="260"> | <img src="screenshots/02_landscape.png" width="520"> |
+
 ## Рішення
 
 - [`Cat.kt`](app/src/main/java/com/example/android_proj/Cat.kt) — `class Cat(var name, var age, var weight)`.
