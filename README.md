@@ -1,24 +1,18 @@
 # Практика 1 — збереження стану активіті при повороті
 
-Завдання:
-
-- зробити маленький клас (Кіт) з 2–3 полями, геттерами, сеттерами та конструктором;
-- в активіті зробити поле з типом `Cat` і налаштувати його стан;
-- при повороті екрана стан кота має зберігатися (`onSaveInstanceState` / `onRestoreInstanceState`).
+Завдання: маленький клас (Кіт) з 2–3 полями, геттерами, сеттерами та конструктором; поле з типом `Cat` в активіті;
+при повороті екрана стан кота має зберігатися (`onSaveInstanceState` / `onRestoreInstanceState`).
 
 ## Рішення
 
-| Файл | Що всередині |
-|---|---|
-| [`Cat.kt`](app/src/main/java/com/example/android_proj/Cat.kt) | клас `Cat(name, age, weight)`: конструктор, геттери та сеттери з перевіркою значень (ім'я не порожнє, вік 0–30, вага 0.5–15 кг) |
-| [`MainActivity.kt`](app/src/main/java/com/example/android_proj/MainActivity.kt) | поле `cat`, кнопки змінюють його стан; `onSaveInstanceState` кладе поля в `Bundle`, `onRestoreInstanceState` створює кота заново з цих значень |
+- [`Cat.kt`](app/src/main/java/com/example/android_proj/Cat.kt) — `class Cat(var name, var age, var weight)`.
+  Для кожного `var` Kotlin сам створює геттер і сеттер. Клас позначено `@Parcelize`, тобто він `Parcelable`.
+- [`MainActivity.kt`](app/src/main/java/com/example/android_proj/MainActivity.kt) — поле `cat`, три кнопки змінюють
+  вагу, вік та ім'я. `onSaveInstanceState` кладе кота в `Bundle` через `putParcelable`, `onRestoreInstanceState`
+  дістає його через `getParcelable`.
 
-На екрані: ім'я, вік і вага кота, кнопки «Нагодувати» (+0.1 кг), «День народження» (+1 рік), «Нове ім'я», «Скинути».
-Змінюєш стан, повертаєш телефон — активіті перестворюється, а кіт лишається тим самим.
-У Logcat (тег `CatState`) видно, що саме збереглося і відновилося.
-
-Дизайн — токени [cennge-ui](https://github.com/Cennge/cennge-ui) (темна тема, помаранчевий акцент, шрифт Inter).
+Змінюєш стан кнопками, повертаєш телефон — активіті перестворюється, а кіт лишається тим самим.
 
 ## Запуск
 
-Відкрити в Android Studio → **Run** (Android 13 / API 33+). Або `./gradlew installDebug` (JDK 21).
+Android Studio → **Run** (Android 13 / API 33+), або `./gradlew installDebug` (JDK 21).

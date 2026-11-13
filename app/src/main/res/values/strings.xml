@@ -1,25 +1,7 @@
 <resources>
     <string name="app_name">Практика 1 · Кіт</string>
-
-    <string name="badge">Практика 1</string>
     <string name="title">Кіт</string>
-    <string name="subtitle">Зміни стан кота кнопками, а потім поверни телефон — стан збережеться через onSaveInstanceState / onRestoreInstanceState.</string>
-
-    <string name="field_name">Ім\'я</string>
-    <string name="field_age">Вік</string>
-    <string name="field_weight">Вага</string>
-
-    <string name="actions">Налаштувати стан</string>
-    <string name="feed">Нагодувати</string>
-    <string name="birthday">День народження</string>
-    <string name="rename">Нове ім\'я</string>
-    <string name="reset">Скинути</string>
-    <string name="hint">Поверни екран, щоб перевірити збереження стану</string>
-
-    <plurals name="years">
-        <item quantity="one">%d рік</item>
-        <item quantity="few">%d роки</item>
-        <item quantity="many">%d років</item>
-        <item quantity="other">%d року</item>
-    </plurals>
+    <string name="feed">+ вага</string>
+    <string name="birthday">+ вік</string>
+    <string name="rename">Ім\'я</string>
 </resources>
