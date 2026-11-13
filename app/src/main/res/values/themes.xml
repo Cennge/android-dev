@@ -1,6 +1,6 @@
 <resources>
     <!-- cennge-ui is dark-first: the app ships its dark theme only. -->
-    <style name="Base.Theme.Photoshop" parent="Theme.Material3.Dark.NoActionBar">
+    <style name="Base.Theme.Practice" parent="Theme.Material3.Dark.NoActionBar">
         <item name="colorPrimary">@color/cennge_primary</item>
         <item name="colorOnPrimary">@color/cennge_primary_foreground</item>
         <item name="colorPrimaryContainer">@color/cennge_primary_bg</item>
@@ -27,7 +27,7 @@
         <item name="android:windowLightNavigationBar">false</item>
     </style>
 
-    <style name="Theme.Photoshop" parent="Base.Theme.Photoshop" />
+    <style name="Theme.Practice" parent="Base.Theme.Practice" />
 
     <!-- ===================================================== text -->
     <style name="Cennge.Text" parent="">
