@@ -1,65 +1,318 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/cennge_background"
     tools:context=".MainActivity">
 
-    <androidx.core.widget.NestedScrollView
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="520dp"
+        android:background="@drawable/bg_glow" />
+
+    <ScrollView
+        android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
-        android:paddingBottom="88dp">
+        android:overScrollMode="never">
 
         <LinearLayout
+            android:id="@+id/content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            android:paddingHorizontal="20dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="32dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/home_title"
-                android:textAppearance="?attr/textAppearanceHeadlineSmall"
-                android:textColor="@color/white"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:text="@string/home_subtitle"
-                android:textColor="@color/text_secondary" />
-
-            <ImageView
-                android:id="@+id/banner"
-                android:layout_width="match_parent"
-                android:layout_height="170dp"
-                android:layout_marginTop="14dp"
-                android:layout_marginBottom="6dp"
-                android:contentDescription="@null"
-                android:scaleType="centerCrop" />
-
+            <!-- badge -->
             <LinearLayout
-                android:id="@+id/libraryList"
+                android:layout_width="wrap_content"
+                android:layout_height="26dp"
+                android:background="@drawable/bg_badge"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="10dp">
+
+                <View
+                    android:layout_width="6dp"
+                    android:layout_height="6dp"
+                    android:background="@drawable/bg_dot" />
+
+                <TextView
+                    style="@style/Cennge.Text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:text="@string/home_badge"
+                    android:textColor="@color/cennge_primary_text"
+                    android:textFontWeight="600"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/title"
+                style="@style/Cennge.Text.Display"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                tools:text="Фотошоп 2.0" />
+
+            <TextView
+                style="@style/Cennge.Text.Body"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" />
+                android:layout_marginTop="8dp"
+                android:text="@string/home_subtitle"
+                android:textSize="15sp" />
+
+            <!-- before / after hero -->
+            <com.example.android_proj.BeforeAfterView
+                android:id="@+id/hero"
+                android:layout_width="match_parent"
+                android:layout_height="230dp"
+                android:layout_marginTop="22dp"
+                android:elevation="8dp"
+                android:outlineProvider="none" />
+
+            <TextView
+                android:id="@+id/heroCaption"
+                style="@style/Cennge.Text.Caption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="Тягни повзунок · фільтр «Кодахром» + віньєтка + зерно" />
+
+            <TextView
+                style="@style/Cennge.Text.Label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:text="@string/home_sources" />
+
+            <!-- camera + gallery tiles -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/camera"
+                    android:layout_width="0dp"
+                    android:layout_height="128dp"
+                    android:layout_marginEnd="6dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_primary"
+                    android:clickable="true"
+                    android:elevation="10dp"
+                    android:focusable="true"
+                    android:orientation="vertical"
+                    android:outlineSpotShadowColor="@color/cennge_primary"
+                    android:outlineAmbientShadowColor="@color/cennge_primary"
+                    android:padding="16dp"
+                    android:stateListAnimator="@animator/tactile_press">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/bg_badge_default"
+                        android:backgroundTint="#26140C06"
+                        android:importantForAccessibility="no"
+                        android:padding="9dp"
+                        android:src="@drawable/ic_camera"
+                        app:tint="@color/cennge_primary_foreground" />
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        style="@style/Cennge.Text.Subtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/home_camera"
+                        android:textColor="@color/cennge_primary_foreground"
+                        android:textFontWeight="700"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        style="@style/Cennge.Text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:alpha="0.72"
+                        android:text="@string/home_camera_hint"
+                        android:textColor="@color/cennge_primary_foreground"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/gallery"
+                    android:layout_width="0dp"
+                    android:layout_height="128dp"
+                    android:layout_marginStart="6dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/btn_default"
+                    android:clickable="true"
+                    android:elevation="4dp"
+                    android:focusable="true"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:stateListAnimator="@animator/tactile_press">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/bg_badge"
+                        android:importantForAccessibility="no"
+                        android:padding="9dp"
+                        android:src="@drawable/ic_image"
+                        app:tint="@color/cennge_primary_text" />
+
+                    <Space
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        style="@style/Cennge.Text.Subtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/home_gallery"
+                        android:textFontWeight="700"
+                        android:textSize="17sp" />
+
+                    <TextView
+                        style="@style/Cennge.Text.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/home_gallery_hint" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- from the internet -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/bg_card"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:background="@drawable/bg_badge_default"
+                        android:importantForAccessibility="no"
+                        android:padding="8dp"
+                        android:src="@drawable/ic_link"
+                        app:tint="@color/cennge_foreground" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            style="@style/Cennge.Text.Subtitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/home_url_title" />
+
+                        <TextView
+                            style="@style/Cennge.Text.Caption"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Зручно на емуляторі, де немає камери" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/url"
+                        style="@style/Cennge.Text"
+                        android:layout_width="0dp"
+                        android:layout_height="46dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_input"
+                        android:hint="@string/home_url_hint"
+                        android:imeOptions="actionGo"
+                        android:importantForAutofill="no"
+                        android:inputType="textUri"
+                        android:paddingHorizontal="14dp"
+                        android:singleLine="true"
+                        android:textColorHint="#80E8EAEE"
+                        android:textCursorDrawable="@null" />
+
+                    <TextView
+                        android:id="@+id/open"
+                        style="@style/Cennge.Button.Primary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="46dp"
+                        android:layout_marginStart="8dp"
+                        android:drawableEnd="@drawable/ic_arrow_forward"
+                        android:paddingEnd="12dp"
+                        android:text="@string/home_url_open" />
+                </LinearLayout>
+
+                <TextView
+                    style="@style/Cennge.Text.Label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:text="@string/home_samples" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fadingEdgeLength="24dp"
+                    android:overScrollMode="never"
+                    android:requiresFadingEdge="horizontal"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:id="@+id/samples"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal" />
+                </HorizontalScrollView>
+            </LinearLayout>
+
+            <!-- what's inside -->
+            <TextView
+                style="@style/Cennge.Text.Label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:text="Що вміє редактор" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/features"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:chipSpacingHorizontal="8dp"
+                app:chipSpacingVertical="8dp" />
         </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
-
-    <nl.dionsegijn.konfetti.xml.KonfettiView
-        android:id="@+id/konfetti"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/celebrate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
-        android:text="@string/celebrate" />
+    </ScrollView>
 </FrameLayout>

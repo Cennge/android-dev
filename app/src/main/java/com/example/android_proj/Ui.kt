@@ -1,74 +1,99 @@
 package com.example.android_proj
 
+import android.content.Context
+import android.graphics.Bitmap
 import android.graphics.Color
 import android.view.View
+import android.widget.TextView
 import androidx.activity.SystemBarStyle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.isVisible
 import androidx.core.view.updatePadding
-import com.google.android.material.appbar.MaterialToolbar
-import nl.dionsegijn.konfetti.core.Angle
-import nl.dionsegijn.konfetti.core.Party
-import nl.dionsegijn.konfetti.core.Position
-import nl.dionsegijn.konfetti.core.Spread
-import nl.dionsegijn.konfetti.core.emitter.Emitter
-import nl.dionsegijn.konfetti.core.models.Shape
-import java.util.concurrent.TimeUnit
+import coil3.imageLoader
+import coil3.request.ImageRequest
+import coil3.request.SuccessResult
+import coil3.request.allowHardware
+import coil3.size.Precision
+import coil3.toBitmap
 
-/** Dark app theme -> light status/navigation bar icons. */
+/** Dark-first: light icons on transparent system bars in every activity. */
 fun AppCompatActivity.enableDarkEdgeToEdge() = enableEdgeToEdge(
     statusBarStyle = SystemBarStyle.dark(Color.TRANSPARENT),
     navigationBarStyle = SystemBarStyle.dark(Color.TRANSPARENT),
 )
 
-/** targetSdk 37 is always edge-to-edge: pad the root view by the system bars. */
-fun View.applySystemBarsPadding() {
-    ViewCompat.setOnApplyWindowInsetsListener(this) { v, insets ->
-        val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-        v.updatePadding(left = bars.left, top = bars.top, right = bars.right, bottom = bars.bottom)
+/** Adds the system bar (and keyboard) insets to the given views' existing padding. */
+fun applyInsets(root: View, top: View? = null, bottom: View? = null) {
+    val topPad = top?.paddingTop ?: 0
+    val bottomPad = bottom?.paddingBottom ?: 0
+    ViewCompat.setOnApplyWindowInsetsListener(root) { _, insets ->
+        val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars() or WindowInsetsCompat.Type.ime())
+        top?.updatePadding(top = topPad + bars.top)
+        bottom?.updatePadding(bottom = bottomPad + bars.bottom)
+        root.updatePadding(left = bars.left, right = bars.right)
         insets
     }
 }
 
-fun AppCompatActivity.setupToolbar(toolbar: MaterialToolbar, subtitle: String? = null) {
-    setSupportActionBar(toolbar)
-    supportActionBar?.setDisplayHomeAsUpEnabled(true)
-    toolbar.subtitle = subtitle
-    toolbar.setNavigationOnClickListener { onBackPressedDispatcher.onBackPressed() }
+fun Context.dp(v: Int) = (v * resources.displayMetrics.density).toInt()
+
+/**
+ * Loads any photo source (https URL, content:// from the picker, the camera file) as a software
+ * ARGB bitmap that can be drawn and read pixel by pixel. Coil applies EXIF rotation and
+ * downsamples big camera photos so they fit in [maxSize].
+ */
+suspend fun Context.loadBitmap(source: Any, maxSize: Int): Bitmap? {
+    val request = ImageRequest.Builder(this)
+        .data(source)
+        .size(maxSize)
+        .precision(Precision.INEXACT)
+        .allowHardware(false)
+        .build()
+    val result = imageLoader.execute(request)
+    return (result as? SuccessResult)?.image?.toBitmap()
 }
 
-/** Konfetti presets, based on the samples linked from the Konfetti README. */
-object Confetti {
-    private val colors = listOf(0xfce18a, 0xff726d, 0xf4306d, 0xb48def, 0x7c9cff)
-    private val shapes = listOf(Shape.Square, Shape.Circle, Shape.Polygon.STAR)
-
-    fun explode(y: Double = 0.3) = listOf(
-        Party(
-            speed = 0f, maxSpeed = 30f, damping = 0.9f, spread = 360,
-            colors = colors, shapes = shapes,
-            emitter = Emitter(duration = 100, TimeUnit.MILLISECONDS).max(120),
-            position = Position.Relative(0.5, y),
-        )
-    )
-
-    fun parade(): List<Party> {
-        val base = Party(
-            speed = 10f, maxSpeed = 30f, damping = 0.9f, angle = Angle.RIGHT - 45,
-            spread = Spread.SMALL, colors = colors, shapes = shapes,
-            emitter = Emitter(duration = 3, TimeUnit.SECONDS).perSecond(40),
-            position = Position.Relative(0.0, 0.5),
-        )
-        return listOf(base, base.copy(angle = Angle.LEFT + 45, position = Position.Relative(1.0, 0.5)))
+/** cennge-ui toast: a pill that slides in, waits and slides out. */
+fun TextView.flash(message: String, iconRes: Int? = null, duration: Long = 2200) {
+    animate().cancel()
+    text = message
+    setCompoundDrawablesRelativeWithIntrinsicBounds(iconRes ?: 0, 0, 0, 0)
+    if (!isVisible) {
+        alpha = 0f
+        translationY = -dp(12).toFloat()
+        isVisible = true
     }
+    animate().alpha(1f).translationY(0f).setDuration(220).setInterpolator(TactileEase).withEndAction {
+        animate().alpha(0f).translationY(-dp(12).toFloat()).setStartDelay(duration).setDuration(180)
+            .withEndAction { isVisible = false }.start()
+    }.start()
+}
 
-    fun rain() = listOf(
-        Party(
-            speed = 0f, maxSpeed = 15f, damping = 0.9f, angle = Angle.BOTTOM,
-            spread = Spread.ROUND, colors = colors, shapes = shapes,
-            emitter = Emitter(duration = 3, TimeUnit.SECONDS).perSecond(100),
-            position = Position.Relative(0.0, 0.0).between(Position.Relative(1.0, 0.0)),
-        )
-    )
+private fun View.dp(v: Int) = context.dp(v)
+
+/**
+ * A wide button with a start icon: TextView draws the icon at the far edge,
+ * so shift both padding sides to keep icon + text centred together.
+ */
+fun TextView.centerIconWithText() {
+    addOnLayoutChangeListener { v, l, _, r, _, _, _, _, _ ->
+        val tv = v as TextView
+        val icon = tv.compoundDrawablesRelative[0] ?: return@addOnLayoutChangeListener
+        val content = icon.intrinsicWidth + tv.compoundDrawablePadding + tv.paint.measureText(tv.text.toString())
+        val side = ((r - l - content) / 2).toInt().coerceAtLeast(0)
+        if (tv.paddingStart != side) tv.post { tv.setPaddingRelative(side, tv.paddingTop, side, tv.paddingBottom) }
+    }
+}
+
+/** "1 зміна / 2 зміни / 5 змін" */
+fun changesLabel(n: Int): String {
+    val word = when {
+        n % 10 == 1 && n % 100 != 11 -> "зміна"
+        n % 10 in 2..4 && n % 100 !in 12..14 -> "зміни"
+        else -> "змін"
+    }
+    return "$n $word"
 }

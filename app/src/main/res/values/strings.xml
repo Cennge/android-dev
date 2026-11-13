@@ -1,10 +1,46 @@
 <resources>
-    <string name="app_name">Android Dev Top-5</string>
-    <string name="home_title">Топ-5 бібліотек для Android</string>
-    <string name="home_subtitle">Відео · 3D · анімації · зображення · частинки</string>
-    <string name="celebrate">Святкуємо!</string>
-    <string name="player_title">Media3 / ExoPlayer</string>
-    <string name="filament_title">Filament 3D</string>
-    <string name="lottie_title">Lottie + Konfetti</string>
-    <string name="gallery_title">Coil 3 Gallery</string>
+    <string name="app_name">Фотошоп 2.0</string>
+
+    <string name="home_badge">v2.0 · cennge-ui</string>
+    <string name="home_title">Фотошоп</string>
+    <string name="home_title_version">2.0</string>
+    <string name="home_subtitle">Зніми фото, обери з галереї або встав посилання — і зроби його своїм: фільтри, корекція, обрізка, поворот та ефекти.</string>
+    <string name="home_before">До</string>
+    <string name="home_after">Після</string>
+    <string name="home_sources">Звідки беремо фото</string>
+    <string name="home_camera">Камера</string>
+    <string name="home_camera_hint">Зняти нове фото</string>
+    <string name="home_gallery">Галерея</string>
+    <string name="home_gallery_hint">Обрати з пристрою</string>
+    <string name="home_url_title">З інтернету</string>
+    <string name="home_url_hint">https://…/photo.jpg</string>
+    <string name="home_url_open">Відкрити</string>
+    <string name="home_samples">Або спробуй приклад</string>
+    <string name="home_url_invalid">Встав посилання, що починається з http:// або https://</string>
+    <string name="home_no_camera">На пристрої немає застосунку камери</string>
+
+    <string name="editor_title">Редактор</string>
+    <string name="editor_save">Зберегти</string>
+    <string name="editor_hold">Утримуй — оригінал</string>
+    <string name="editor_original">Оригінал</string>
+    <string name="editor_loading">Завантажую фото…</string>
+    <string name="editor_load_failed">Не вдалося відкрити зображення</string>
+    <string name="editor_saved">Збережено в Галерею → Pictures/Photoshop 2.0</string>
+    <string name="editor_save_failed">Не вдалося зберегти</string>
+
+    <string name="tab_filters">Фільтри</string>
+    <string name="tab_adjust">Корекція</string>
+    <string name="tab_crop">Обрізка</string>
+    <string name="tab_rotate">Поворот</string>
+    <string name="tab_effects">Ефекти</string>
+
+    <string name="filter_intensity">Інтенсивність</string>
+    <string name="crop_reset">Скинути</string>
+    <string name="crop_hint">Тягни кути або всю рамку</string>
+    <string name="rotate_left">−90°</string>
+    <string name="rotate_right">+90°</string>
+    <string name="flip_h">Дзеркало ↔</string>
+    <string name="flip_v">Дзеркало ↕</string>
+    <string name="straighten">Вирівнювання</string>
+    <string name="reset">Скинути</string>
 </resources>

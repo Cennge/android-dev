@@ -1,12 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  cennge-ui design tokens (src/styles.css, dark theme) translated to Android colours.
+  Names follow the cennge-* variables, so the two stay easy to compare.
+-->
 <resources>
-    <color name="black">#FF000000</color>
+    <!-- surfaces: depth comes from layering 1 → 4 -->
+    <color name="cennge_background">#111317</color>
+    <color name="cennge_surface_1">#111317</color>
+    <color name="cennge_surface_2">#181B20</color>
+    <color name="cennge_surface_3">#21252B</color>
+    <color name="cennge_surface_4">#2C3038</color>
+    <color name="cennge_foreground">#E8EAEE</color>
+    <color name="cennge_muted">#9AA2AE</color>
+    <color name="cennge_border">#2F343C</color>
+    <color name="cennge_canvas">#0B0C0F</color>
+
+    <!-- primary = orange accent; foreground = text on the fill, text = the colour used as text -->
+    <color name="cennge_primary">#FB6C1A</color>
+    <color name="cennge_primary_400">#FF8A3D</color>
+    <color name="cennge_primary_600">#EC520F</color>
+    <color name="cennge_primary_foreground">#140C06</color>
+    <color name="cennge_primary_text">#FFB06D</color>
+    <!-- color-mix(primary 14% / 26%, transparent) -->
+    <color name="cennge_primary_bg">#24FB6C1A</color>
+    <color name="cennge_primary_highlight">#42FB6C1A</color>
+
+    <color name="cennge_secondary">#7C3AED</color>
+    <color name="cennge_secondary_text">#C4B5FD</color>
+    <color name="cennge_success">#12B85F</color>
+    <color name="cennge_success_text">#6EE7A0</color>
+    <color name="cennge_danger">#E5112F</color>
+    <color name="cennge_danger_text">#FF9BA6</color>
+    <color name="cennge_info_text">#93C5FD</color>
+
+    <!-- default role: default-500 (#677081) at 14% / 26% -->
+    <color name="cennge_default_bg">#24677081</color>
+    <color name="cennge_default_highlight">#42677081</color>
+
+    <!-- tactile edge: light top highlight + dark bottom lip -->
+    <color name="cennge_edge_light">#29FFFFFF</color>
+    <color name="cennge_edge_dark">#47000000</color>
+    <color name="cennge_scrim">#99000000</color>
+
     <color name="white">#FFFFFFFF</color>
-    <color name="bg">#FF0E1116</color>
-    <color name="surface">#FF171B22</color>
-    <color name="surface_high">#FF1F2530</color>
-    <color name="accent">#FF7C9CFF</color>
-    <color name="accent_dark">#FF1B2A5C</color>
-    <color name="pink">#FFF4306D</color>
-    <color name="text_secondary">#FF9AA4B2</color>
+    <color name="black">#FF000000</color>
 </resources>

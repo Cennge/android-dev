@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Tabs list "solid": rounded-medium bg-default-bg p-1 with an inset shadow at the top -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#40000000" />
+            <corners android:radius="@dimen/radius_medium" />
+        </shape>
+    </item>
+    <item android:top="1dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/cennge_default_bg" />
+            <corners android:radius="@dimen/radius_medium" />
+        </shape>
+    </item>
+</layer-list>
