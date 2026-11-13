@@ -33,5 +33,4 @@ android-application = { id = "com.android.application", version.ref = "agp" }
 # AGP 9 uses built-in Kotlin; putting a newer KGP on the classpath upgrades the compiler
 # (Coil 3.6 is compiled with a newer Kotlin than the one bundled with AGP).
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
 

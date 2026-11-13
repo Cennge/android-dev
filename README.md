@@ -1,17 +1,20 @@
-# Практика 1 — збереження стану активіті при повороті
+# Практика 2 — «Поширити» фото з текстом
 
-Завдання: маленький клас (Кіт) з 2–3 полями, геттерами, сеттерами та конструктором; поле з типом `Cat` в активіті;
-при повороті екрана стан кота має зберігатися (`onSaveInstanceState` / `onRestoreInstanceState`).
+Завдання: кнопка вибору зображення з пристрою, текстове поле і кнопка «Поширити». При натисканні на «Поширити»
+з'являється системний діалог вибору додатка (Telegram тощо), і туди приходять і зображення, і текст.
 
-## Рішення
+| Додаток | Діалог «Поширити» |
+|:---:|:---:|
+| ![Додаток](screenshots/01_app.png) | ![Діалог вибору додатка](screenshots/02_share.png) |
 
-- [`Cat.kt`](app/src/main/java/com/example/android_proj/Cat.kt) — `class Cat(var name, var age, var weight)`.
-  Для кожного `var` Kotlin сам створює геттер і сеттер. Клас позначено `@Parcelize`, тобто він `Parcelable`.
-- [`MainActivity.kt`](app/src/main/java/com/example/android_proj/MainActivity.kt) — поле `cat`, три кнопки змінюють
-  вагу, вік та ім'я. `onSaveInstanceState` кладе кота в `Bundle` через `putParcelable`, `onRestoreInstanceState`
-  дістає його через `getParcelable`.
+## Як працює
 
-Змінюєш стан кнопками, повертаєш телефон — активіті перестворюється, а кіт лишається тим самим.
+- **Обрати зображення** — системний Photo Picker (`PickVisualMedia`), дозволи не потрібні.
+- **Поширити** — `Intent.ACTION_SEND` з `EXTRA_STREAM` (фото) і `EXTRA_TEXT` (текст з поля),
+  загорнутий у `Intent.createChooser(...)`. Фото спершу копіюється в кеш і віддається через `FileProvider`
+  з `FLAG_GRANT_READ_URI_PERMISSION`, щоб Telegram та інші додатки мали до нього доступ.
+
+Код: [`MainActivity.kt`](app/src/main/java/com/example/android_proj/MainActivity.kt) (функція `share()`).
 
 ## Запуск
 
