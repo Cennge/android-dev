@@ -23,6 +23,7 @@
 | [`practice01-cat`](https://github.com/Cennge/android-dev/tree/practice01-cat) | Практика 1 — клас `Cat`, збереження стану при повороті (`Parcelable`) |
 | [`practice02-share`](https://github.com/Cennge/android-dev/tree/practice02-share) | Практика 2 — вибір фото, текст і «Поширити» |
 | [`practice03-compose`](https://github.com/Cennge/android-dev/tree/practice03-compose) | Практика 3 — інтернет-магазин на Jetpack Compose |
+| [`practice04-product-feed`](https://github.com/Cennge/android-dev/tree/practice04-product-feed) | Практика — стрічка карток товарів (1 або 2 в ряд), фото з інтернету |
 
 ## Що було на занятті і що додано
 
