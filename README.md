@@ -24,6 +24,7 @@
 | [`practice02-share`](https://github.com/Cennge/android-dev/tree/practice02-share) | Практика 2 — вибір фото, текст і «Поширити» |
 | [`practice03-compose`](https://github.com/Cennge/android-dev/tree/practice03-compose) | Практика 3 — інтернет-магазин на Jetpack Compose |
 | [`practice04-product-feed`](https://github.com/Cennge/android-dev/tree/practice04-product-feed) | Практика — стрічка карток товарів (1 або 2 в ряд), фото з інтернету |
+| [`practice05-wishlist`](https://github.com/Cennge/android-dev/tree/practice05-wishlist) | Практика — «Список бажань»: фото + опис, 5 пунктів |
 
 ## Що було на занятті і що додано
 
