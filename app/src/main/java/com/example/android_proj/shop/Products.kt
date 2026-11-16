@@ -28,8 +28,6 @@ data class Product(
     val discount get() = oldPrice?.let { 100 - price * 100 / it }
 }
 
-data class Promo(val tag: String, val title: String, val subtitle: String, val colors: List<Color>, val photo: String)
-
 /** Product photos: Unsplash (Unsplash License). */
 private fun unsplash(id: String) = "https://images.unsplash.com/photo-$id?w=700&q=80&fm=jpg"
 
@@ -109,23 +107,6 @@ object Catalog {
             14, "Urban Pack", Category.ACCESSORIES, 2299, null, 4.7f, 507, unsplash("1553062407-98eeb64c6a62"),
             "Міський рюкзак на 22 літри з відділенням для ноутбука 16\" та водовідштовхувальною тканиною.",
             listOf(Color(0xFF1F2A44), Color(0xFF1B1B1F), Color(0xFF3B4A3F)),
-        ),
-    )
-
-    val hot = products.filter { it.discount != null }
-
-    val promos = listOf(
-        Promo(
-            "Осінній розпродаж", "−30%", "на все взуття до неділі",
-            listOf(Color(0xFFFB6C1A), Color(0xFFE5112F)), unsplash("1542291026-7eec264c27ff"),
-        ),
-        Promo(
-            "Новинка", "Studio Max", "тиша, яку чутно",
-            listOf(Color(0xFF7C3AED), Color(0xFF2E5AAC)), unsplash("1505740420928-5e560c06d30e"),
-        ),
-        Promo(
-            "Тільки онлайн", "2 = 3", "третя річ з аксесуарів у подарунок",
-            listOf(Color(0xFF0F9F6E), Color(0xFF155E75)), unsplash("1572635196237-14b3f281503f"),
         ),
     )
 }
