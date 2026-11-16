@@ -1,21 +1,23 @@
-# Практика — стрічка карток товарів
+# Практика — «Список бажань»
 
-Завдання: зробити стрічку з карток для товарів, зображення беруться з інтернету, по ширині екрана може бути
-1 або 2 картки, всього карток ±10–15.
+Завдання: заповнити список так, щоб кожен пункт мав зображення та текстовий опис. Додаток «Список бажань»,
+4–5 пунктів, має бути красиво.
 
-| 2 картки в ряд | 1 картка в ряд |
-|:---:|:---:|
-| ![2 колонки](screenshots/01_two_columns.png) | ![1 колонка](screenshots/02_one_column.png) |
+| Початок списку | Картки бажань | Виконане бажання |
+|:---:|:---:|:---:|
+| ![Шапка](screenshots/01_top.png) | ![Картки](screenshots/02_cards.png) | ![Виконано](screenshots/03_done.png) |
 
 ## Рішення
 
-- **14 товарів** ([`shop/Products.kt`](app/src/main/java/com/example/android_proj/shop/Products.kt)): назва, категорія,
-  ціна, стара ціна, рейтинг, опис і посилання на фото.
-- **Стрічка** ([`shop/FeedScreen.kt`](app/src/main/java/com/example/android_proj/shop/FeedScreen.kt)) —
-  `LazyVerticalGrid` з `GridCells.Fixed(columns)`. Перемикач у шапці змінює `columns` між 1 і 2,
-  картки плавно переставляються (`animateItem`), вибір зберігається при повороті (`rememberSaveable`).
-- **Фото з інтернету** — Coil 3 `AsyncImage` (кешування, плавна поява). У режимі однієї картки фото ширше
-  і з'являється опис товару.
+- **5 бажань** ([`shop/Wishes.kt`](app/src/main/java/com/example/android_proj/shop/Wishes.kt)): назва, опис,
+  фото з інтернету, ціна, скільки вже накопичено, пріоритет.
+- **Екран** ([`shop/WishlistScreen.kt`](app/src/main/java/com/example/android_proj/shop/WishlistScreen.kt)) —
+  `LazyColumn` з карток:
+  - велике фото (Coil 3 `AsyncImage`) з градієнтом, на ньому назва, пріоритет і кнопка «улюблене»;
+  - текстовий опис, ціна і прогрес накопичення;
+  - кнопка «Позначити виконаним»: фото стає чорно-білим, прогрес — 100 %.
+- Зверху — підсумкова картка: скільки накопичено із загальної суми, кількість бажань і виконаних.
+- Позначки «улюблене» та «виконано» зберігаються при повороті (`rememberSaveable`).
 
 Інтерфейс написано на Jetpack Compose (Kotlin), XML лише для теми вікна.
 
@@ -23,4 +25,4 @@
 
 Android Studio → **Run** (Android 13 / API 33+, потрібен інтернет), або `./gradlew installDebug` (JDK 21).
 
-Фото товарів — [Unsplash](https://unsplash.com) (Unsplash License). Назви товарів вигадані.
+Фото — [Unsplash](https://unsplash.com) (Unsplash License).
