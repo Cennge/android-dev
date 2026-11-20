@@ -25,6 +25,7 @@
 | [`practice03-compose`](https://github.com/Cennge/android-dev/tree/practice03-compose) | Практика 3 — інтернет-магазин на Jetpack Compose |
 | [`practice04-product-feed`](https://github.com/Cennge/android-dev/tree/practice04-product-feed) | Практика — стрічка карток товарів (1 або 2 в ряд), фото з інтернету |
 | [`practice05-wishlist`](https://github.com/Cennge/android-dev/tree/practice05-wishlist) | Практика — «Список бажань»: фото + опис, 5 пунктів |
+| [`practice06-simple-adapter`](https://github.com/Cennge/android-dev/tree/practice06-simple-adapter) | Практика — ListView + `SimpleAdapter`, круглі картинки з інтернету (Glide + CircleImageView), Java |
 
 ## Що було на занятті і що додано
 
