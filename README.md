@@ -26,6 +26,7 @@
 | [`practice04-product-feed`](https://github.com/Cennge/android-dev/tree/practice04-product-feed) | Практика — стрічка карток товарів (1 або 2 в ряд), фото з інтернету |
 | [`practice05-wishlist`](https://github.com/Cennge/android-dev/tree/practice05-wishlist) | Практика — «Список бажань»: фото + опис, 5 пунктів |
 | [`practice06-simple-adapter`](https://github.com/Cennge/android-dev/tree/practice06-simple-adapter) | Практика — ListView + `SimpleAdapter`, круглі картинки з інтернету (Glide + CircleImageView), Java |
+| [`practice07-notification`](https://github.com/Cennge/android-dev/tree/practice07-notification) | Практика — сповіщення зі своїм заголовком і описом, Java |
 
 ## Що було на занятті і що додано
 
