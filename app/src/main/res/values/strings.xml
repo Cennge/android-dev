@@ -1,7 +1,5 @@
 <resources>
-    <string name="app_name">Практика 1 · Кіт</string>
-    <string name="title">Кіт</string>
-    <string name="feed">+ вага</string>
-    <string name="birthday">+ вік</string>
-    <string name="rename">Ім\'я</string>
+    <string name="app_name">Практика · SimpleAdapter</string>
+    <string name="title">Мої речі</string>
+    <string name="subtitle">ListView + SimpleAdapter, фото з інтернету через Glide</string>
 </resources>

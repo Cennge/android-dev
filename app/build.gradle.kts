@@ -1,6 +1,5 @@
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.parcelize)
 }
 
 android {
@@ -39,6 +38,8 @@ dependencies {
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.core.ktx)
     implementation(libs.material)
+    implementation(libs.glide)
+    implementation(libs.circleimageview)
 
     implementation(libs.androidx.lifecycle.runtime.ktx)
     testImplementation(libs.junit)

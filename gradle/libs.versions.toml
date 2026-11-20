@@ -12,6 +12,8 @@ constraintlayout = "2.2.2"
 recyclerview = "1.4.0"
 lifecycle = "2.10.0"
 coil = "3.6.3"
+glide = "4.16.0"
+circleimageview = "3.1.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -27,6 +29,9 @@ androidx-recyclerview = { group = "androidx.recyclerview", name = "recyclerview"
 # --- image loading (photos from the internet / gallery / camera) ---
 coil = { group = "io.coil-kt.coil3", name = "coil", version.ref = "coil" }
 coil-network-okhttp = { group = "io.coil-kt.coil3", name = "coil-network-okhttp", version.ref = "coil" }
+
+glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
+circleimageview = { group = "de.hdodenhof", name = "circleimageview", version.ref = "circleimageview" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
