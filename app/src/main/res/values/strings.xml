@@ -1,5 +1,12 @@
 <resources>
-    <string name="app_name">Практика · SimpleAdapter</string>
-    <string name="title">Мої речі</string>
-    <string name="subtitle">ListView + SimpleAdapter, фото з інтернету через Glide</string>
+    <string name="app_name">Практика · Сповіщення</string>
+    <string name="title">Сповіщення</string>
+    <string name="subtitle">Введи заголовок і текст — і надішли собі сповіщення</string>
+    <string name="label_title">Заголовок</string>
+    <string name="label_text">Опис</string>
+    <string name="default_title">Моє перше сповіщення 🔔</string>
+    <string name="default_text">Це моє власне сповіщення з практики з Android. Домашку зроблено, можна йти пити каву ☕</string>
+    <string name="send">Надіслати сповіщення</string>
+    <string name="channel_name">Практика</string>
+    <string name="no_permission">Дозволь сповіщення в налаштуваннях</string>
 </resources>
